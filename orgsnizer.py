@@ -25,7 +25,7 @@ def organize_files(folder_path, output_box, status_label):
         messagebox.showwarning("Warning", "Please select a folder first!")
         return
 
-    status_label.config(text="🟡 Organizing...", fg="orange")
+    status_label.config(text=" Organizing...", fg="orange")
     root.update_idletasks()
 
     files = os.listdir(folder_path)
@@ -40,8 +40,8 @@ def organize_files(folder_path, output_box, status_label):
             shutil.move(item_path, os.path.join(category_path, item))
             output_box.insert(tk.END, f"{item} -> moved to {category} folder\n")
 
-    status_label.config(text="✅ Done", fg="green")
-    messagebox.showinfo("Done ✅", "Files have been organized successfully!")
+    status_label.config(text=" Done", fg="green")
+    messagebox.showinfo("Done ", "Files have been organized successfully!")
 
 # Function to browse folder
 def browse_folder(entry):
@@ -53,17 +53,17 @@ def browse_folder(entry):
 # Function to clear output box
 def clear_output(output_box, status_label):
     output_box.delete(1.0, tk.END)
-    status_label.config(text="🟢 Ready", fg="blue")
+    status_label.config(text=" Ready", fg="blue")
 
 # ---------------- GUI ----------------
 root = tk.Tk()
-root.title("📂 File Organizer")
+root.title("File Organizer")
 root.geometry("600x450")
 root.configure(bg="#f4f4f9")  # soft background
 
 # Heading
 tk.Label(
-    root, text="📁 File Organizer",
+    root, text=" File Organizer",
     font=("Arial", 18, "bold"),
     bg="#4CAF50", fg="white", pady=10
 ).pack(fill="x")
@@ -92,7 +92,7 @@ scrollbar.config(command=output_box.yview)
 # Organize button
 tk.Button(
     root,
-    text="🚀 Organize Files",
+    text=" Organize Files",
     font=("Arial", 14, "bold"),
     bg="#4CAF50", fg="white",
     padx=20, pady=10,
@@ -102,7 +102,7 @@ tk.Button(
 # Clear button
 tk.Button(
     root,
-    text="🧹 Clear Output",
+    text=" Clear Output",
     font=("Arial", 12),
     bg="#f44336", fg="white",
     padx=15, pady=5,
@@ -111,7 +111,7 @@ tk.Button(
 
 # Status bar
 status_label = tk.Label(
-    root, text="🟢 Ready", bd=1, relief=tk.SUNKEN,
+    root, text=" Ready", bd=1, relief=tk.SUNKEN,
     anchor="w", bg="#f4f4f9", font=("Arial", 10), fg="blue"
 )
 status_label.pack(side=tk.BOTTOM, fill=tk.X)
